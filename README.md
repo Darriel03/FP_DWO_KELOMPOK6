@@ -14,12 +14,13 @@ Nama Kelompok:
 Langkah-langkah yang dibutuhkan untuk menjalankan Dashboard dengan baik :
 1. Install database server: MySql (disini kami menggunakan Xampp versi terbaru).
 2. Install software mysql management: phpMyAdmin dari Xampp (ATAU YG LAIN).
-3. Download File yang dibutuhkan untuk menjalankan dashboard [disini](https://drive.google.com/drive/folders/1OX8THLwr7deN9MRvwUAN_WVOg1dA9NUU)
-4. Extract "project-dashboard-dwo-kelompok-6" pada folder htdocs XAMPP (xampp/htdocs).
+3. Download ZIP "FP_DWO_KELOMPOK6-main" yang ada pada "Code" 
+4. Extract "FP_DWO_KELOMPOK6-main" pada folder htdocs XAMPP (xampp/htdocs).
 5. Jalankan Xampp control panel.
 6. Start apache dan mysql server.
 7. Buka phpMyAdmin (localhost/phpmyadmin).
-8. Buat database dengan nama wh_aw.
-9. Import file wh_aw.sql ke dalam database wh_aw.
-10. Download dan Extract Mondrian (nama file) dari link (link file Mondrian) ke dalam server Tomcat bawaan dari XAMPP (xampp/tomcat/webapps).
-111. Jalankan aplikasi dengan mengakses (link dashboard)
+8. Buat database dengan nama "wh_aw".
+9. Import file "wh_aw.sql" yang terdapat pada "FP_DWO_KELOMPOK6-main" ke dalam database "wh_aw".
+10. Tambahkan Mondrian "Mondrian Olap" ke dalam server Tomcat bawaan dari XAMPP (xampp/tomcat/webapps).
+11. Jalankan aplikasi dengan mengakses localhost/namafolder/file index.php pada browser. 
+
