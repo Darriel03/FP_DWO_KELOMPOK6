@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<Schema name="dw_aw">
+<!--
+  == This software is subject to the terms of the Eclipse Public License v1.0
+  == Agreement, available at the following URL:
+  == http://www.eclipse.org/legal/epl-v10.html.
+  == You must accept the terms of that agreement to use this software.
+  ==
+  == Copyright (C) 2000-2005 Julian Hyde
+  == Copyright (C) 2005-2011 Pentaho and others
+  == All Rights Reserved.
+  -->
+
+<!-- Shared dimensions -->
+
+  
+
+<!-- Sales -->
+<Cube name="fktpdk" defaultMeasure="Amount">
+  <!-- Use annotations to provide translations of this cube's caption and
+       description into German and French. Use of annotations in this manner is
+       experimental and unsupported; just for testing right now. -->
+  
+  <Table name="fakta_produksi"/>
+
+    
+  <Dimension name="Product" foreignKey ="Product_ID">
+      <Hierarchy hasAll="true" allMemberName="All Product" primaryKey ="Product_ID">
+      <Table name="product"/>
+      <Level name="Product Name" column="Product_Name"/>
+      <Level name="Product Size" column="Product_Size"/>
+      <Level name="Product Weight" column="Product_Weight"/>
+      <Level name="Product Color" column="Product_Color"/>
+      <Level name="Product Price" column="Product_Price"/>
+      </Hierarchy>
+      
+  </Dimension>
+
+ 
+  <Dimension name="Time" foreignKey="time_id">
+    <Hierarchy hasAll="true" allMemberName="All Times" primaryKey="time_id">
+      <Table name="time" />
+      <Level name="Year" column="tahun" type="Numeric" uniqueMembers="true"
+          levelType="TimeYears"/>
+      <Level name="Month" column="bulan" uniqueMembers="false" type="Numeric"
+          levelType="TimeMonths"/>
+      <Level name="Date" column="tanggal" uniqueMembers="false" type="Numeric"
+          levelType="TimeDays"/>
+    </Hierarchy>
+   
+  </Dimension>
+
+  <Dimension name="Location" foreignKey = "Location_ID">
+    <Hierarchy hasAll="true" allMemberName="All Location" primaryKey ="Location_ID">
+      <Table name="location" />
+      <Level name="Production Location" column="location_Name"/>
+    </Hierarchy>
+  </Dimension>
+
+
+    
+  
+
+  <Measure name="ProductionQty" column="ProductionQty" aggregator="sum"
+      formatString="Standard"/>
+  <Measure name="Size" column="size" aggregator="avg"
+      formatString="Standard"/>
+  <Measure name="Weight" column="weight" aggregator="avg"
+      formatString="Standard"/>
+  <Measure name="List Price" column="List_Price" aggregator="avg"
+      formatString="Standard"/>
+  <Measure name="Actual Cost" column="Actual_Cost" aggregator="sum"
+      formatString="Standard"/> 
+  
+</Cube>
+
+</Schema>
